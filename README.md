@@ -9,3 +9,8 @@ Puedes ver el resultado de la práctica haciendo clic en el siguiente enlace:
 Puedes acceder al documento detallado del informe aquí:
 
 [📄 Ver informe PDF (LABORATORIO 6 CGVCM.pdf)](LABORATORIO%206%20CGVCM.pdf)
+
+## Descarga del Proyecto
+Puedes descargar el ejecutable compilado directamente desde este enlace:
+
+[⬇️ Descargar Compilado.zip](https://github.com/PauloUNSA/Laboratorio6/releases/download/Versiones/Compilado.zip)
