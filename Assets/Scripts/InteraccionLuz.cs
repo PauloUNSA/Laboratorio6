@@ -9,6 +9,9 @@ public class InteraccionLuz : MonoBehaviour
     [Header("Arrastra aquí tu Botiquín")]
     public GameObject botiquin;
 
+    [Header("Arrastra aquí tu GameManager")]
+    public ControladorNivel controlador; // Conexión segura
+
     public float distanciaInteraccion = 3f;
 
     void Start()
@@ -30,6 +33,7 @@ public class InteraccionLuz : MonoBehaviour
     {
         if (Keyboard.current == null) return;
 
+        // --- PARTE 1: TU CÓDIGO ORIGINAL (Interruptor) ---
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             RaycastHit hit;
@@ -48,6 +52,22 @@ public class InteraccionLuz : MonoBehaviour
                     {
                         botiquin.SetActive(!botiquin.activeSelf);
                     }
+                }
+            }
+        }
+
+        // --- PARTE 2: LÓGICA PARA GANAR EL JUEGO ---
+        // Revisamos continuamente si estamos mirando el botiquín
+        RaycastHit hitVision;
+        if (Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward, out hitVision, distanciaInteraccion))
+        {
+            // Si el rayo choca con el botiquín, el botiquín está visible y la luz prendida
+            if (hitVision.transform.CompareTag("Botiquin") && botiquin.activeSelf && focoInteractivo.enabled)
+            {
+                // Le avisamos al GameManager que ganamos (solo si está conectado y no hemos ganado antes)
+                if (controlador != null && !controlador.juegoTerminado)
+                {
+                    controlador.GanarJuego();
                 }
             }
         }
