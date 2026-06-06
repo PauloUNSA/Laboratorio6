@@ -1,21 +1,21 @@
 using UnityEngine;
-using TMPro; // Solo lo mantenemos para que el reloj pueda cambiar sus números
+using TMPro;
 using System.Collections;
 
 public class ControladorNivel : MonoBehaviour
 {
     [Header("Textos del Tutorial (GameObjects)")]
-    public GameObject textoMision; // "estas a punto de morir encuentra el botiquin"
-    public GameObject textoInstruccion; // "para ello encuentra el interruptor..."
-    public GameObject textoVictoria; // "¡Felicitaciones!"
-    public GameObject textoDerrota; // "¡Has muerto!"
+    public GameObject textoMision;
+    public GameObject textoInstruccion;
+    public GameObject textoVictoria;
+    public GameObject textoDerrota;
 
     [Header("Reloj Dinámico")]
-    public TextMeshProUGUI textoReloj; // Esto debe ser TMP para actualizar los números
+    public TextMeshProUGUI textoReloj;
 
     [Header("Configuración de Tiempo")]
-    public float tiempoRestante = 1800f; // 30 minutos
-    public float tiempoVisible = 5f; // Segundos que durará cada texto en pantalla
+    public float tiempoRestante = 30f;
+    public float tiempoVisible = 5f; // para cada texto en pantalla
 
     public bool juegoTerminado { get; private set; } = false;
 
